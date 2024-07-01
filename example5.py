@@ -9,7 +9,7 @@ def detect_hand(image):
     blurred = cv2.GaussianBlur(gray, (7, 7), 0)
 
     # Apply a threshold to create a binary image
-    _, threshold = cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
+    threshold = cv2.threshold(blurred, 127, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
 
     # Find contours in the binary image
     contours, _ = cv2.findContours(threshold.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
